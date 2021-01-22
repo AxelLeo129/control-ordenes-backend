@@ -48,8 +48,8 @@ public class AuthController {
 
     @GetMapping("/userdetailname/{nombre}")
     public ResponseEntity<Usuario> getByNombre(@PathVariable("nombre") String nombre){
-        if(!usuarioService.existsByNombre(nombre))
-            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        if(!usuarioService.existsByNombreUsuario(nombre))
+            return new ResponseEntity(new Mensaje("no existe" + usuarioService.existsByNombre(nombre)), HttpStatus.NOT_FOUND);
         Usuario usuario = usuarioService.getByNombreUsuario(nombre).get();
         return new ResponseEntity(usuario, HttpStatus.OK);
     }
