@@ -11,6 +11,7 @@ import com.tutorial.crud.security.entity.Usuario;
 
 @Entity
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,8 +21,7 @@ public class Producto {
     @JoinColumn(name = "vendedor")
     private Usuario vendedor;
 
-    public Producto() {
-    }
+    public Producto() { }
 
     public Producto(String nombre, float precio, Usuario vendedor) {
         this.nombre = nombre;
